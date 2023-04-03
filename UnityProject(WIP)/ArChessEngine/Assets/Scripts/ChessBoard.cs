@@ -7,6 +7,7 @@ public class ChessBoard : MonoBehaviour
     public Color lightColor;
     public Color darkColor;
 
+    
     MeshRenderer[,] squareRenderers;
 
     [SerializeField]
@@ -67,6 +68,7 @@ public class ChessBoard : MonoBehaviour
 
                 Transform square = GameObject.CreatePrimitive(PrimitiveType.Quad).transform;
                 square.parent = transform;
+             
                 //square.name = (file, rank);
                 square.position = PositionFromCoord(file, rank, 0);
                 //square.position -= new Vector3(0,2.5f, 0);
@@ -525,10 +527,14 @@ public class ChessBoard : MonoBehaviour
                 Vector3 newPos = square.position;
                 newPos.z += 0.1f;
                 square.position = newPos;
+
+                
             }
 
         }
 
+        transform.rotation = Quaternion.Euler(90f,0f,0f);
+    
     }
 
     //returns the full board in FEN notation
